@@ -5,6 +5,7 @@ import java.security.SecureRandom;
 public class HangmanApplication {
 
     private static final String[] WORDS = {"HELLO", "APPLAUSE", "BEAUTIFUL", "MAVERICK"};
+    private static final int NUMBER_OF_TRIES = 5;
 
     private static SecureRandom random = new SecureRandom();
 
@@ -12,10 +13,10 @@ public class HangmanApplication {
 
         System.out.println("Welcome to HangMan!");
 
-        String word = WORDS[random.nextInt(3)];
-        int points = new HangMan(word, 5).play();
+        String word = WORDS[random.nextInt(WORDS.length -1)];
+        int points = new HangMan(word, NUMBER_OF_TRIES).play();
 
-        System.out.println("\nYou scored " + points + " points");
+        System.out.println("\nYour final score is " + points + " points");
 
 
 //        List<Integer> points = Arrays.stream(WORDS).map(word -> {
